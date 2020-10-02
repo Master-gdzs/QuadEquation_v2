@@ -7,6 +7,7 @@ public class main {
         double b = quadEquation.inputCoefficient();
         double c = quadEquation.inputCoefficient();
         quadEquation.setCoef(a, b, c);
+        double[] x1x1 = quadEquation.equationCalc();
         String equation = quadEquation.toString();
         System.out.println(equation);
         double discr = b * b - 4 * a * c;
@@ -18,11 +19,8 @@ public class main {
         } else if (discr == 0) {
             x1 = -(b / 2 * a);
             x2 = x1;
-        } else {
-            x1 = (-b + Math.sqrt(discr)) / (2 * a);
-            x2 = (-b - Math.sqrt(discr)) / (2 * a);
         }
-        System.out.println("x1 = " + x1);
-        System.out.println("x2 = " + x2);
+      //  System.out.println("x1 = " + x1);
+        //System.out.println("x2 = " + x2);
     }
 }

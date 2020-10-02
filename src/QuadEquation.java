@@ -29,6 +29,19 @@ public class QuadEquation {
         return coefficient;
     }
 
+    public double[] equationCalc(){
+        double[]x1x2 = new double[2];
+        double discr = coefB * coefB - 4 * coefA * coefC;
+        x1 = (-coefB + Math.sqrt(discr)) / (2 * coefA);
+        x2 = (-coefB - Math.sqrt(discr)) / (2 * coefA);
+        return x1x2;
+    }
+
+
+    public String outEquation (){
+        return null;
+    }
+
     @Override
     public String toString() {
         return "QuadEquation: " + coefA + "x^2 " + coefB + "x " + coefC;
