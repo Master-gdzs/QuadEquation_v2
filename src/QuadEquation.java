@@ -1,7 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class QuadEquation {
@@ -20,7 +16,7 @@ public class QuadEquation {
         this.coefC = coefC;
     }
 
-    public double inputCoefficient() throws IOException {
+    public double inputCoefficient() {
         double coefficient;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input coefficient: ");
@@ -29,16 +25,25 @@ public class QuadEquation {
         return coefficient;
     }
 
-    public double[] equationCalc(){
-        double[]x1x2 = new double[2];
+    public double[] equationCalc() {
+        double[] x1x2 = new double[2];
         double discr = coefB * coefB - 4 * coefA * coefC;
-        x1 = (-coefB + Math.sqrt(discr)) / (2 * coefA);
-        x2 = (-coefB - Math.sqrt(discr)) / (2 * coefA);
+        if (discr < 0) {
+            System.out.println("There is no decision");
+            x1x2[0] = 0;
+            x1x2[1] = 0;
+        } else if (discr == 0) {
+            x1x2[0] = -(coefB / 2 * coefA);
+            x1x2[1] = x1x2[0];
+        } else {
+            x1x2[0] = (-coefB + Math.sqrt(discr)) / (2 * coefA);
+            x1x2[1] = (-coefB - Math.sqrt(discr)) / (2 * coefA);
+        }
         return x1x2;
     }
 
 
-    public String outEquation (){
+    public String outEquation() {
         return null;
     }
 
