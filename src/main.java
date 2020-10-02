@@ -1,14 +1,14 @@
-import java.util.Scanner;
+import java.io.IOException;
 
 public class main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter coef A");
-        int a = scanner.nextInt();
-        System.out.println("Enter coef B");
-        int b = scanner.nextInt();
-        System.out.println("Enter coef C");
-        int c = scanner.nextInt();
+    public static void main(String[] args) throws IOException {
+        QuadEquation quadEquation = new QuadEquation();
+        double a = quadEquation.inputCoefficient();
+        double b = quadEquation.inputCoefficient();
+        double c = quadEquation.inputCoefficient();
+        quadEquation.setCoef(a, b, c);
+        String equation = quadEquation.toString();
+        System.out.println(equation);
         double discr = b * b - 4 * a * c;
         double x1, x2;
         if (discr < 0) {
@@ -19,8 +19,8 @@ public class main {
             x1 = -(b / 2 * a);
             x2 = x1;
         } else {
-            x1 = (-b + Math.sqrt(discr) )/ (2 * a);
-            x2 = (-b - Math.sqrt(discr) )/ (2 * a);
+            x1 = (-b + Math.sqrt(discr)) / (2 * a);
+            x2 = (-b - Math.sqrt(discr)) / (2 * a);
         }
         System.out.println("x1 = " + x1);
         System.out.println("x2 = " + x2);
